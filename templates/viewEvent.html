@@ -1,0 +1,41 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<link href="../stylesheets/main.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<div id="message">
+				<center>{{ message }}</center>
+				</div>
+				<div id="links">
+					<a href="/">Home</a> |
+					<a href= "{{ user.getUserLink }}" >Your Profile</a> | 
+					<a href = "/MakeEvent"> Make an Event!</a>
+				</div>
+			</div>
+			<div id="create_block">
+				{{ event.name }}
+				<i> <br>Courtesy of <a href="{{event.creator.getUserLink}}">{{event.creator.key.name}}</a></i>
+				<br>Location: {{event.location}}
+				<br>Time: {{event.dateStart.time}} - {{event.dateEnd.time}}
+				<br>Date: {{event.dateStart.date}}
+				{% if event.verified %}
+				<br>Verified
+				{% endif %}
+				{% if event.description %}
+				<br>Description:
+				<br>{{event.description}}
+				{% endif %}
+				{% if event.host %}
+				<br>
+				<br>Hosted by {{event.host}}
+				{% endif %}
+			</div>
+			<div id="footer">
+				<p> Friends with Food &copy; 2013 </p>
+			</div>
+		</div>
+	</body>
+</html>
